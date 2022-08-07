@@ -5,13 +5,11 @@ import java.util.Scanner;
 public class Main {
 	
 	public static void main (String[] args) {
-		System.out.print("----------------------------Welcome to the employee database system!----------------------------\n");
-		System.out.print("Please make your selection \n");
-		System.out.print("1.) Login \n");
-		System.out.print("2.) Sign Up\n");
-		
-		System.out.print("3.) Exit program \n");
-		
+		System.out.print("----------------------------Welcome to the employee database system!----------------------------\n"
+				+ "Please make your selection\n"
+				+ "1.) Login \n"+
+				"2.) Sign Up\n" +
+				"3.) Exit program");
 		//New scanner variable start = to new scanner object that takes in system input
 		Scanner scan = new Scanner(System.in);
 		
