@@ -5,13 +5,15 @@ public class SignInInterface {
 	
 	
 	
-	public static void SignIn() {
+	public void SignIn() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Please pick your Username"); 
+		System.out.println("Welcome Back! \n" + "Please enter your username!"); 
 		String currentUsername = scan.next();
-		System.out.println("Welcome back " + currentUsername + "\nPlease choose your password.");
+		System.out.println("Hello, " + currentUsername + "\nPlease type in your password");
 		String currentPassword = scan.next();
 		System.out.println(currentPassword + " is the password you typed");
+		
+		
 		  
 		  
 //		  if (currentPassword equals("Database password")) {
