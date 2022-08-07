@@ -8,9 +8,7 @@ public class Main {
 		
 		// Creating a new menuInterface option for user to make a selection
 		MenuInterface menuInterface = new MenuInterface();
-		
 		menuInterface.MenuSelect();
-
 	}
 
 }

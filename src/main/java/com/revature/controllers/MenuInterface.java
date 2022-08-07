@@ -5,12 +5,8 @@ public class MenuInterface {
 	
 
 	
-	public void MenuSelect() {
-		System.out.println("\nPlease make your selection\n"
-				+"1.) Login\n"
-				+ "2.) Sign Up\n" 
-				+ "3.) Exit program\n");
-		
+	public static void MenuSelect() {
+		System.out.println("\nPlease make your selection\n"+"1.) Login\n"+ "2.) Sign Up\n" + "3.) Exit program\n");
 		Scanner scan = new Scanner(System.in);
 		
 		int selection = scan.nextInt();
@@ -27,13 +23,15 @@ public class MenuInterface {
 			  NewUserInterface NewUserInterface = new NewUserInterface();
 			  NewUserInterface.NewUser();
 			  break;
-			  
-			  
-			  
+		
 		  case 3:
 			  System.out.println("Exiting program! See you again soon!");
 			  break;
+
+		  //Catches any integers that are not 1,2 or 3
 		  default:
+			  System.out.println("Unrecongnized selection...\n" + "Returning to Main Menu\n");
+			  MenuInterface.MenuSelect();
 		}
 	}
 
