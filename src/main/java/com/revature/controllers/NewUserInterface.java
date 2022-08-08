@@ -32,12 +32,12 @@ public class NewUserInterface {
 			  
 			  
 			  //TEST CODE HERE
-			  
-			  CustomerAccount Test = new CustomerAccount(newFirstName, newLastName);
-			 
-			  System.out.println(Test);
-			  
-			  
+//			  
+//			  CustomerAccount Test = new CustomerAccount(newFirstName, newLastName);
+//			 
+//			  System.out.println(Test);
+//			  
+//			  
 			  
 			  
 			  

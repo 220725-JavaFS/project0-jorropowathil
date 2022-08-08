@@ -18,8 +18,9 @@ public class CustomerAccount {
 	
 	
 	
-	public CustomerAccount(int balance, int lastTransaction, String firstName, String lastName, String newUsername, String newPassword){
+	public CustomerAccount(String userId, int balance, int lastTransaction, String firstName, String lastName, String newUsername, String newPassword){
 		super();
+		this.userId = userId;
 		this.balance = balance;
 		this.lastTransaction = lastTransaction;
 		this.firstName = firstName;
@@ -114,9 +115,9 @@ public class CustomerAccount {
 		this.transactionHistory = transactionHistory;
 	}
 
-
 	
-
-	
-
+//	public String toString() {
+//		return "CustomerAccount [" + firstName+ " " + lastName + "]";
+//	}
 }
+
