@@ -6,6 +6,7 @@ public class SignInInterface {
 	
 	
 	public void SignIn() {
+		
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Welcome Back! \n" + "Please enter your username!"); 
 		String currentUsername = scan.next();

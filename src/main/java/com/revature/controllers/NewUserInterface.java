@@ -2,6 +2,8 @@ package com.revature.controllers;
 
 import java.util.Scanner;
 
+import com.revature.models.CustomerAccount;
+
 public class NewUserInterface {
 	
 	public void NewUser() {
@@ -14,8 +16,8 @@ public class NewUserInterface {
 		  String newLastName = scan.next();
 		  System.out.println("Welcome " + newFirstName + " " + newLastName + ", please pick your Username");
 		  
-		  String newEmployee = scan.next();
-		  System.out.println("Your selected username is " + newEmployee);
+		  String newUsername = scan.next();
+		  System.out.println("Your selected username is " + newUsername);
 		  
 		  System.out.println("\nPlease choose your password.");
 		  String newPassword = scan.next();
@@ -23,10 +25,27 @@ public class NewUserInterface {
 		  String confirmPassword = scan.next();
 	
 		  if (newPassword.equals(confirmPassword.trim())) { 
-			  System.out.println("Welcome " + newEmployee + ", your passwords match and is saved as: " + confirmPassword);
+			  System.out.println("Welcome " + newUsername + ", your passwords match and is saved as: " + confirmPassword);
 			  
 			  
-			  System.out.println("Please try logging in!"+ "\n Returning to main menu...");
+			  
+			  
+			  
+			  //TEST CODE HERE
+			  
+			  CustomerAccount Test = new CustomerAccount(newFirstName, newLastName);
+			 
+			  System.out.println(Test);
+			  
+			  
+			  
+			  
+			  
+			  
+			  //TEST CODE HERE 
+			  
+			  
+			  System.out.println("Please try logging in!"+ "\nReturning to main menu...");
 			  MenuInterface.MenuSelect();
 		  }
 		  else {
@@ -39,3 +58,12 @@ public class NewUserInterface {
 		  }
 	}
 }
+
+//
+//
+//Variable that collect info on this page
+//newFirstName
+//newLastname
+//newUsername
+//confirmpassword
+//
