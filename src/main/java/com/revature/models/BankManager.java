@@ -1,26 +1,26 @@
 package com.revature.models;
 
 public class BankManager {
-		public class ManagerAccount {
+		public class BankManagerAccount {
 			// From Sign in controller
 			private String firstName;
 			private String lastName;
 			private String newUsername;
 			private String newPassword;
 			//Other
-			private String userId;
+			private String bankManagerId;
 			
 			
-			public ManagerAccount(String userId, String firstName, String lastName, String newUsername, String newPassword){
+			public BankManagerAccount(String bankManagerId, String firstName, String lastName, String newUsername, String newPassword){
 				super();
-				this.userId = userId;
+				this.bankManagerId = bankManagerId;
 				this.firstName = firstName;
 				this.lastName = lastName;
 				this.newUsername = newUsername;
 				this.newPassword = newPassword;
 			}
 			
-			public ManagerAccount() {
+			public BankManagerAccount() {
 				super();
 			}
 			
@@ -34,12 +34,12 @@ public class BankManager {
 				this.newPassword = newPassword;
 			}
 
-			private String getUserId() {
-				return userId;
+			private String getBankManagerId() {
+				return bankManagerId;
 			}
 
-			private void setUserId(String userId) {
-				this.userId = userId;
+			private void setBankManagerId(String bankManagerId) {
+				this.bankManagerId = bankManagerId;
 			}
 			public String getFirstName() {
 				return firstName;
