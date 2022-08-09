@@ -1,8 +1,7 @@
 package com.revature.models;
+	
 
-public class BaseEmployee {
-
-	public class EmployeeAccount {
+public class ManagerAccount {
 		// From Sign in controller
 		private String firstName;
 		private String lastName;
@@ -12,7 +11,7 @@ public class BaseEmployee {
 		private String userId;
 		
 		
-		public EmployeeAccount(String userId, String firstName, String lastName, String newUsername, String newPassword){
+		public ManagerAccount(String userId, String firstName, String lastName, String newUsername, String newPassword){
 			super();
 			this.userId = userId;
 			this.firstName = firstName;
@@ -21,7 +20,7 @@ public class BaseEmployee {
 			this.newPassword = newPassword;
 		}
 		
-		public EmployeeAccount() {
+		public ManagerAccount() {
 			super();
 		}
 		
@@ -66,4 +65,4 @@ public class BaseEmployee {
 			this.newUsername = newUsername;
 		}
 	}
-}
+
