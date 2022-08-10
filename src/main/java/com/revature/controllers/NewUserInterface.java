@@ -7,7 +7,7 @@ import com.revature.models.ManagerAccount;
 
 public class NewUserInterface {
 	
-	public boolean NewUser() {
+	public void NewUser() {
 		  Scanner scan = new Scanner(System.in);
 		  System.out.println("Please enter your first name");
 		  
@@ -25,66 +25,5 @@ public class NewUserInterface {
 		  
 		  System.out.println("Please confirm your password");
 		  String confirmPassword = scan.next();
-	
-		  CustomerAccount customerAccount = customerDaoImp.getCustomerByUsername(newUsername);
-			 
-			
-			
-			boolean signInSuccess = managerAccount.getPassphrase().equals(currentPassword);
-			if (signInSuccess = true) {
-				System.out.println("Sign in successfull");
-			}
-			else {
-				System.out.println("Sign in failed");
-			}
-			
-			return signInSuccess;
-		}
-	}
-		  
-		  
-		  
-		  
-		  if (newPassword.equals(confirmPassword.trim())) { 
-			  System.out.println("Welcome " + newUsername + ", your passwords match and is saved as: " + confirmPassword);
-			  
-			  
-			  
-			  
-			  
-			  //TEST CODE HERE
-//			  
-//			  CustomerAccount Test = new CustomerAccount(newFirstName, newLastName);
-//			 
-//			  System.out.println(Test);
-//			  
-//			  
-			  
-			  
-			  
-			  
-			  //TEST CODE HERE 
-			  
-			  
-			  System.out.println("Please try logging in!"+ "\nReturning to main menu...");
-			  MenuInterface.MenuSelect();
-		  }
-		  else {
-			  System.out.println(newPassword + "<---- Password 1");
-			  System.out.println(confirmPassword+ "<---- Password 2");
-			  System.out.println("They do not match! Please Try again! \nExiting program...");
-			  // This will return the user to log in menu
-			  MenuInterface.MenuSelect();
-			 
-		  }
 	}
 }
-
-//
-//
-//Variable that collect info on this page
-//newFirstName
-//newLastname
-//newUsername
-//confirmpassword
-//

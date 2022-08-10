@@ -9,21 +9,21 @@ public class CustomerAccount {
 	// From Sign in controller
 	private String firstName;
 	private String lastName;
-	private String newUsername;
-	private String newPassword;
+	public String username;
+	private String passphrase;
 	//Other
 	
 	
 	
-	public CustomerAccount(String userId, int balance, int lastTransaction, String firstName, String lastName, String newUsername, String newPassword){
+	public CustomerAccount(String userId, int balance, int lastTransaction, String firstName, String lastName, String username, String passphrase){
 		super();
 		this.userId = userId;
 		this.balance = balance;
 		this.lastTransaction = lastTransaction;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.newUsername = newUsername;
-		this.newPassword = newPassword;
+		this.username = username;
+		this.passphrase = passphrase;
 	}
 	
 	@Override
@@ -33,8 +33,8 @@ public class CustomerAccount {
 		"lastTransaction: " + Integer.toString(lastTransaction) + "\n" + 
 		"firstName: " + firstName + "\n" + 
 		"lastName: " + lastName + "\n" + 
-		"username: " + newUsername + "\n" + 
-		"password: " + newPassword + "\n";
+		"username: " + username + "\n" + 
+		"password: " + passphrase + "\n";
 		return output;
 	}
 
@@ -42,26 +42,6 @@ public class CustomerAccount {
 		super();
 	}
 	
-	
-	
-	
-	//Getters and setters
-	private String getNewPassword() {
-		return newPassword;
-	}
-
-	private void setNewPassword(String newPassword) {
-		this.newPassword = newPassword;
-	}
-
-	private String getUserId() {
-		return userId;
-	}
-
-	private void setUserId(String userId) {
-		this.userId = userId;
-	}
-
 	public int getBalance() {
 		return balance;
 	}
@@ -94,17 +74,22 @@ public class CustomerAccount {
 		this.lastName = lastName;
 	}
 
-	public String getNewUsername() {
-		return newUsername;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setNewUsername(String newUsername) {
-		this.newUsername = newUsername;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public boolean getCustomerByUsername(String customerUsername) {
+	public String getCustomerByUsername(String username) {
 		// TODO Auto-generated method stub
-		return false;
+		return username;
+	}
+
+	public Object getPassphrase() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 //	public String toString() {

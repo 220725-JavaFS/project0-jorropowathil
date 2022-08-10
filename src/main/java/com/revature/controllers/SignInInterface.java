@@ -10,7 +10,9 @@ import com.revature.models.ManagerAccount;
 public class SignInInterface {
 	
 	ManagerDao managerDaoImp = new ManagerDaoImp();
+	CustomerDAOImp customerDAO = new CustomerDAOImp();
 	
+	@SuppressWarnings("unused")
 	public boolean SignIn() {
 		
 		Scanner scan = new Scanner(System.in);
@@ -24,27 +26,35 @@ public class SignInInterface {
 
 		  case 2:
 			  System.out.println("You have selected customer! Welcome back!\n");
-			  System.out.println("You selected option number" + selection);
+			  System.out.println("You selected option number " + selection);
 				System.out.println("Please enter your username!");
 				String customerUsername = scan.next();
+
+				System.out.println(customerUsername);
+				
+				
 				System.out.println("Hello, " + customerUsername + "\nPlease type in your password");
+				
+				@SuppressWarnings("unused") CustomerAccount customerAccount = CustomerDAOImp.getCustomerByUsername(customerUsername);
+				
 				String customerPassphrase = scan.next();
 				
-				CustomerAccount customerAccount = CustomerDAOImp.getCustomerByUsername(customerUsername);
-				boolean loggedOn = customerAccount.getCustomerByUsername(customerUsername);
-				if(loggedOn = true) {
+								
+				boolean temp = CustomerDAO.getPassphrase().equals(customerPassphrase);
+					if(temp = true) {
 					System.out.println("Sign in successfull");
 					System.out.println("Welcome back, " + customerUsername + "\n");
 					System.out.println("What would you like to do?\n" + "1.) View Account Status \n" + "2.) E\n" + "3.) Exit");
-				}
-				else {
+					}
+					else {
 					System.out.println("Username or password incorrect");
 					MenuInterface.MenuSelect();					
-				}
+					}
 				
-							
-//				System.out.println("Hello valued customer, " + );
-			  break;
+				break;
+			  
+			  
+			  
 		  case 3:
 			  System.out.println("Exiting program! See you again soon!");
 			  break;
@@ -85,7 +95,7 @@ public class SignInInterface {
 			  System.out.println(managerDaoImp.getCustomerById(customerId));
 			  System.out.println("Would you like to do anything else?\n" + "1.) Make a deposit or withdrawal \n" + "2.) Exit");
 			  int selection2 = scan.nextInt();
-			  if (selection2 != choice) {
+			  if (selection2 != 1) {
 				  System.out.println("Exiting the application and logging you out");
 			  }			  
 			  else {
@@ -99,17 +109,20 @@ public class SignInInterface {
 				  
 				  if (customerTransact>=0) {
 					  managerDaoImp.atmService(customerIdService, customerTransact);  
+					  managerDaoImp.atmService(customerIdService, customerTransact);
+						
 				  }
 				  else {
 					  managerDaoImp.atmService(customerIdService, customerTransact*-1);
+					  managerDaoImp.atmService(customerIdService, customerTransact*-1);
 				  }
 				  
-				  managerDaoImp.atmService(customerIdService, customerTransact);
-		
+				  
 				  System.out.println("Customer ID is: " + managerDaoImp.getCustomerById(customerIdService));
 				  System.out.println("Transaction amount was for :" + customerTransact);
 				  
-				  System.out.println("The transaction has been completed!");  
+				  System.out.println("The transaction has been completed!");
+				  
 			  }break;
 
 		  case 2:
