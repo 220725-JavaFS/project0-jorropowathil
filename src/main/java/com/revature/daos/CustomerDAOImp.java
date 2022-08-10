@@ -15,12 +15,6 @@ import com.revature.models.CustomerAccount;
 
 
 public class CustomerDAOImp implements CustomerDAO{
-	
-//	public static void main (String[] args) {
-//		CustomerDAOImp test = new CustomerDAOImp();
-//		System.out.println(test.getCustomerById(3).toString());
-//	}
-
 	@Override
 	public CustomerAccount getCustomerById(int userId){
 		try(Connection conn = ConnectionUtil.getConnection()){
@@ -49,7 +43,7 @@ public class CustomerDAOImp implements CustomerDAO{
 	}
 	
 	
-	public CustomerAccount getCustomerByUsername (String username){
+	public static CustomerAccount getCustomerByUsername (String username){
 		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "SELECT * FROM customeraccounts WHERE username = "+username+";";
 			Statement statement = conn.createStatement();
@@ -83,32 +77,4 @@ public class CustomerDAOImp implements CustomerDAO{
 	}
 	
 
-
-	
-	
-	
-	
-	
-//These functions are for managers and Bank managers
-//	public void depositMoney (CustomerAccount customerAccount) {	
-//	}
-//		
-//	
-//	public void withdrawMoney (CustomerAccount customerAccount) {
-//	}
-	
-	
-	
-	
-	
-	
-// To pull up all the customers in the database
-//	public static void main(String[] args) {
-//		CustomerDAO cDao = new CustomerDAOImp();
-//		List<CustomerAccount> list = cDao.getAllCustomers();
-//		System.out.println(list);
-//		}
-//	
-//	
-	
 }

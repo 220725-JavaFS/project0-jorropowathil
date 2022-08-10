@@ -101,6 +101,11 @@ public class CustomerAccount {
 	public void setNewUsername(String newUsername) {
 		this.newUsername = newUsername;
 	}
+
+	public boolean getCustomerByUsername(String customerUsername) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 //	public String toString() {
 //		return "CustomerAccount [" + firstName+ " " + lastName + "]";

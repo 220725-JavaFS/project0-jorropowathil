@@ -19,34 +19,49 @@ public class SignInInterface {
 		switch(selection) {
 		  case 1:
 			  System.out.println("You have selected employee! Welcome back!\n");
+			  
 			  break;
 
 		  case 2:
 			  System.out.println("You have selected customer! Welcome back!\n");
+			  System.out.println("You selected option number" + selection);
+				System.out.println("Please enter your username!");
+				String customerUsername = scan.next();
+				System.out.println("Hello, " + customerUsername + "\nPlease type in your password");
+				String customerPassphrase = scan.next();
+				
+				CustomerAccount customerAccount = CustomerDAOImp.getCustomerByUsername(customerUsername);
+				boolean loggedOn = customerAccount.getCustomerByUsername(customerUsername);
+				if(loggedOn = true) {
+					System.out.println("Sign in successfull");
+					System.out.println("Welcome back, " + customerUsername + "\n");
+					System.out.println("What would you like to do?\n" + "1.) View Account Status \n" + "2.) E\n" + "3.) Exit");
+				}
+				else {
+					System.out.println("Username or password incorrect");
+					MenuInterface.MenuSelect();					
+				}
+				
+							
+//				System.out.println("Hello valued customer, " + );
 			  break;
-		
 		  case 3:
 			  System.out.println("Exiting program! See you again soon!");
 			  break;
-
 		  //Catches any integers that are not 1,2 or 3
 		  default:
 			  System.out.println("Unrecongnized selection...\n" + "Returning to Main Menu\n");
 			  MenuInterface.MenuSelect();
 		}
 		
-		
-		
 		System.out.println("You selected option number" + selection);
 		System.out.println("Please enter your username!");
 		String currentUsername = scan.next();
 		System.out.println("Hello, " + currentUsername + "\nPlease type in your password");
 		String currentPassword = scan.next();
-		
-		
+	
 		ManagerAccount managerAccount = managerDaoImp.getManagerByUsername(currentUsername);
 		 
-		System.out.println();
 		
 		boolean signInSuccess = managerAccount.getPassphrase().equals(currentPassword);
 		if (signInSuccess = true) {
@@ -78,20 +93,24 @@ public class SignInInterface {
 				  
 				  System.out.println("What is the customer's ID?");
 				  int customerIdService = scan.nextInt();
-				  System.out.println("How much to be deposited?");
+				  System.out.println("How much to be deposited or withdrawn?\n" + "Please use '-' if the transaction is a withdrawal");
 				  int customerTransact = scan.nextInt();
 				  
+				  
+				  if (customerTransact>=0) {
+					  managerDaoImp.atmService(customerIdService, customerTransact);  
+				  }
+				  else {
+					  managerDaoImp.atmService(customerIdService, customerTransact*-1);
+				  }
+				  
 				  managerDaoImp.atmService(customerIdService, customerTransact);
-				  
-				  
+		
 				  System.out.println("Customer ID is: " + managerDaoImp.getCustomerById(customerIdService));
 				  System.out.println("Transaction amount was for :" + customerTransact);
 				  
-			  }
-			  
-			  
-			  
-			  break;
+				  System.out.println("The transaction has been completed!");  
+			  }break;
 
 		  case 2:
 			  System.out.println("Make a deposit to a customer acount via user_id!\n");
