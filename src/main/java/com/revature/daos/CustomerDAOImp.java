@@ -16,10 +16,10 @@ import com.revature.models.CustomerAccount;
 
 public class CustomerDAOImp implements CustomerDAO{
 	
-	public static void main (String[] args) {
-		CustomerDAOImp test = new CustomerDAOImp();
-		System.out.println(test.getCustomerById(3).toString());
-	}
+//	public static void main (String[] args) {
+//		CustomerDAOImp test = new CustomerDAOImp();
+//		System.out.println(test.getCustomerById(3).toString());
+//	}
 
 	@Override
 	public CustomerAccount getCustomerById(int userId){

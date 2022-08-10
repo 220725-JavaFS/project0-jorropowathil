@@ -83,7 +83,7 @@ public CustomerAccount transaction(int userId) {
 
 public ManagerAccount getManagerByUsername (String username){
 	try(Connection conn = ConnectionUtil.getConnection()){
-		String sql = "SELECT * FROM manageraccounts WHERE username = "+username+";";
+		String sql = "SELECT * FROM manageraccounts WHERE username = '"+username+"';";
 		Statement statement = conn.createStatement();
 		ResultSet result = statement.executeQuery(sql);
 		
