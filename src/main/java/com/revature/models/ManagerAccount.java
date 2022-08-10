@@ -7,32 +7,27 @@ public class ManagerAccount {
 		// From Sign in controller
 		private String firstName;
 		private String lastName;
-		private String newUsername;
-		private String newPassword;
+		private String username;
+		private String passphrase;
 		
 		
 		
-		public ManagerAccount(String managerId, String firstName, String lastName, String newUsername, String newPassword){
+		public ManagerAccount(String managerId, String firstName, String lastName, String username, String passphrase){
 			super();
 			this.managerId = managerId;
 			this.firstName = firstName;
 			this.lastName = lastName;
-			this.newUsername = newUsername;
-			this.newPassword = newPassword;
+			this.username = username;
+			this.passphrase = passphrase;
 		}
 		
 		public ManagerAccount() {
 			super();
 		}
 		
-		
-		//Getters and setters
-		private String getNewPassword() {
-			return newPassword;
-		}
 
-		private void setNewPassword(String newPassword) {
-			this.newPassword = newPassword;
+		private void setNewPassphrase(String passphrase) {
+			this.passphrase = passphrase;
 		}
 
 		private String getManagerId() {
@@ -59,11 +54,27 @@ public class ManagerAccount {
 		}
 
 		public String getNewUsername() {
-			return newUsername;
+			return username;
 		}
 
-		public void setNewUsername(String newUsername) {
-			this.newUsername = newUsername;
+		public void setNewUsername(String username) {
+			this.username = username;
+		}
+
+		public String getPassphrase() {
+			return passphrase;
+		}
+
+		public void setPassphrase(String passphrase) {
+			this.passphrase = passphrase;
+		}
+
+		public String getUsername() {
+			return username;
+		}
+
+		public void setUsername(String username) {
+			this.username = username;
 		}
 	}
 

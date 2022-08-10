@@ -14,14 +14,5 @@ public class SignInInterface {
 		String currentPassword = scan.next();
 		System.out.println(currentPassword + " is the password you typed");
 		
-		
-		  
-		  
-//		  if (currentPassword equals("Database password")) {
-//			  //Let user sign in and direct to appropriate controller
-//		  };
-//		  else (other valid){
-//			  
-//		  }
+		public 
 	}
-}

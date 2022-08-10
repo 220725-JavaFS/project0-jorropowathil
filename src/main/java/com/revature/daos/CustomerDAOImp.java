@@ -49,6 +49,32 @@ public class CustomerDAOImp implements CustomerDAO{
 	}
 	
 	
+	public CustomerAccount getCustomerByUsername (String username){
+		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = "SELECT * FROM customeraccounts WHERE username = "+username+";";
+			Statement statement = conn.createStatement();
+			ResultSet result = statement.executeQuery(sql);
+			
+			if(result.next()) { //resultSets are cursor based, each time .next is called the cursor moves to the next group of values. 
+				//It starts one before so you always need to call next.
+				CustomerAccount customerAccount = new CustomerAccount(
+						result.getString("user_id"),
+						result.getInt("balance"),
+						result.getInt("last_Transaction"),
+						result.getString("first_name"),
+						result.getString("last_name"),
+						result.getString("username"),
+						result.getString("passphrase")
+						);
+				return customerAccount;
+				}	
+			}		
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 
 
 	

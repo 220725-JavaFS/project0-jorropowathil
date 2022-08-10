@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.revature.models.CustomerAccount;
+import com.revature.models.ManagerAccount;
 import com.revature.util.ConnectionUtil;
 
 public class ManagerDaoImp implements ManagerDao {
@@ -59,7 +60,43 @@ public CustomerAccount transaction(int userId) {
 					result.getString("username"),
 					result.getString("passphrase")
 					);
-			return customerAccount;
+	
+			}	
+		
+		
+		String sql2 = "UPDATE customeraccounts set balance = "+balance+";"
+		
+		
+		}		
+	catch(SQLException e) {
+		e.printStackTrace();
+	}
+	
+	
+	try (Connection conn = ConnectionUtil.getConnection()){
+		
+	}
+	
+	
+	
+}
+
+public ManagerAccount getManagerByUsername (String username){
+	try(Connection conn = ConnectionUtil.getConnection()){
+		String sql = "SELECT * FROM manageraccounts WHERE username = "+username+";";
+		Statement statement = conn.createStatement();
+		ResultSet result = statement.executeQuery(sql);
+		
+		if(result.next()) { //resultSets are cursor based, each time .next is called the cursor moves to the next group of values. 
+			//It starts one before so you always need to call next.
+			ManagerAccount managerAccount = new ManagerAccount(
+					result.getString("user_id"),
+					result.getString("first_name"),
+					result.getString("last_name"),
+					result.getString("username"),
+					result.getString("passphrase")
+					);
+			return managerAccount;
 			}	
 		}		
 	catch(SQLException e) {
