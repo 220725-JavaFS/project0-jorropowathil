@@ -1,5 +1,9 @@
 package com.revature.daos;
 
-public class ManagerDao {
+public interface ManagerDao {
+	
+
+	public abstract ManagerAccount getCustomerById(int id);
+	
 
 }

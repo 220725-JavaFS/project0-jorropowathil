@@ -1,6 +1,8 @@
 package com.revature.models;
 
 public class CustomerAccount {
+	
+	private String userId;
 	//count the customer balance
 	private int balance;
 	private int lastTransaction;
@@ -10,11 +12,6 @@ public class CustomerAccount {
 	private String newUsername;
 	private String newPassword;
 	//Other
-	private String userId;
-	//thing that customer can VIEW ONLY
-	private int checkingBalance;
-	private int creditBalance;
-	private int transactionHistory;
 	
 	
 	
@@ -32,6 +29,8 @@ public class CustomerAccount {
 	public CustomerAccount() {
 		super();
 	}
+	
+	
 	
 	
 	//Getters and setters
@@ -90,31 +89,6 @@ public class CustomerAccount {
 	public void setNewUsername(String newUsername) {
 		this.newUsername = newUsername;
 	}
-
-	public int getCheckingBalance() {
-		return checkingBalance;
-	}
-
-	public void setCheckingBalance(int checkingBalance) {
-		this.checkingBalance = checkingBalance;
-	}
-
-	public int getCreditBalance() {
-		return creditBalance;
-	}
-
-	public void setCreditBalance(int creditBalance) {
-		this.creditBalance = creditBalance;
-	}
-
-	public int getTransactionHistory() {
-		return transactionHistory;
-	}
-
-	public void setTransactionHistory(int transactionHistory) {
-		this.transactionHistory = transactionHistory;
-	}
-
 	
 //	public String toString() {
 //		return "CustomerAccount [" + firstName+ " " + lastName + "]";
