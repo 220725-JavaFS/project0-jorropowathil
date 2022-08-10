@@ -42,7 +42,6 @@ public class SignInInterface {
 		String currentUsername = scan.next();
 		System.out.println("Hello, " + currentUsername + "\nPlease type in your password");
 		String currentPassword = scan.next();
-		System.out.println(currentPassword + " is the password you typed");
 		
 		
 		ManagerAccount managerAccount = managerDaoImp.getManagerByUsername(currentUsername);
@@ -62,9 +61,9 @@ public class SignInInterface {
 		
 		
 		int choice = scan.nextInt();
-		
 		switch(choice) {
 		  case 1:
+			  
 			  System.out.println("View customer account by ID!\n" + "Please enter customer user_id");
 			  int customerId = scan.nextInt();
 			  managerDaoImp.getCustomerById(customerId);
@@ -76,6 +75,17 @@ public class SignInInterface {
 			  }			  
 			  else {
 //				  customerTransactionById
+				  
+				  System.out.println("What is the customer's ID?");
+				  int customerIdService = scan.nextInt();
+				  System.out.println("How much to be deposited?");
+				  int customerTransact = scan.nextInt();
+				  
+				  managerDaoImp.atmService(customerIdService, customerTransact);
+				  
+				  
+				  System.out.println("Customer ID is: " + managerDaoImp.getCustomerById(customerIdService));
+				  System.out.println("Transaction amount was for :" + customerTransact);
 				  
 			  }
 			  
