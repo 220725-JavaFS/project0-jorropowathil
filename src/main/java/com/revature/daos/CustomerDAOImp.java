@@ -17,16 +17,15 @@ import com.revature.models.CustomerAccount;
 public class CustomerDAOImp implements CustomerDAO{
 
 	
-	
 	public static void main (String[] args) {
 		CustomerDAOImp test = new CustomerDAOImp();
-		test.getCustomerById(0);
+		test.getCustomerById(3);
 	}
 
 	@Override
 	public CustomerAccount getCustomerById(int userId) {
 		try(Connection conn = ConnectionUtil.getConnection()){
-			String sql = "SELECT * FROM customer WHERE user_id = "+userId+";";
+			String sql = "SELECT * FROM customeraccounts WHERE user_id = "+userId+";";
 			Statement statement = conn.createStatement();
 			ResultSet result = statement.executeQuery(sql);
 			
@@ -35,11 +34,11 @@ public class CustomerDAOImp implements CustomerDAO{
 				CustomerAccount customerAccount = new CustomerAccount(
 						result.getString("user_id"),
 						result.getInt("balance"),
-						result.getInt("lastTransaction"),
-						result.getString("firstName"),
-						result.getString("lastName"),
-						result.getString("newUsername"),
-						result.getString("newPassword")
+						result.getInt("last_Transaction"),
+						result.getString("first_name"),
+						result.getString("last_name"),
+						result.getString("username"),
+						result.getString("passphrase")
 						);
 				return customerAccount;
 				}	
