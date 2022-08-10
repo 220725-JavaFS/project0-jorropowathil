@@ -3,13 +3,14 @@ package com.revature.controllers;
 import java.util.Scanner;
 
 import com.revature.models.CustomerAccount;
+import com.revature.models.ManagerAccount;
 
 public class NewUserInterface {
 	
-	public void NewUser() {
-		Scanner scan = new Scanner(System.in);
-		
+	public boolean NewUser() {
+		  Scanner scan = new Scanner(System.in);
 		  System.out.println("Please enter your first name");
+		  
 		  String newFirstName = scan.next();
 		  System.out.println("Hello, " + newFirstName + ". Please enter your last name ");
 		  
@@ -21,9 +22,29 @@ public class NewUserInterface {
 		  
 		  System.out.println("\nPlease choose your password.");
 		  String newPassword = scan.next();
+		  
 		  System.out.println("Please confirm your password");
 		  String confirmPassword = scan.next();
 	
+		  CustomerAccount customerAccount = customerDaoImp.getCustomerByUsername(newUsername);
+			 
+			
+			
+			boolean signInSuccess = managerAccount.getPassphrase().equals(currentPassword);
+			if (signInSuccess = true) {
+				System.out.println("Sign in successfull");
+			}
+			else {
+				System.out.println("Sign in failed");
+			}
+			
+			return signInSuccess;
+		}
+	}
+		  
+		  
+		  
+		  
 		  if (newPassword.equals(confirmPassword.trim())) { 
 			  System.out.println("Welcome " + newUsername + ", your passwords match and is saved as: " + confirmPassword);
 			  

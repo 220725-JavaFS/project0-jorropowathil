@@ -74,6 +74,13 @@ public class CustomerDAOImp implements CustomerDAO{
 		}
 		return null;
 	}
+
+
+	@Override
+	public CustomerAccount getCustomerbyUsername(String Username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 
