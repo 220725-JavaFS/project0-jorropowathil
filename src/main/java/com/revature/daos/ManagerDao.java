@@ -1,9 +1,12 @@
 package com.revature.daos;
 
+import com.revature.models.CustomerAccount;
+import com.revature.models.ManagerAccount;
+
 public interface ManagerDao {
 	
 
-	public abstract ManagerAccount getCustomerById(int id);
+	
 	
 
 }

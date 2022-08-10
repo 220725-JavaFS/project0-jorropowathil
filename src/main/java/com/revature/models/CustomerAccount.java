@@ -26,6 +26,18 @@ public class CustomerAccount {
 		this.newPassword = newPassword;
 	}
 	
+	@Override
+	public String toString() {
+		String output ="userId: " + userId + "\n" +
+		"balance: " + Integer.toString(balance) + "\n" + 
+		"lastTransaction: " + Integer.toString(lastTransaction) + "\n" + 
+		"firstName: " + firstName + "\n" + 
+		"lastName: " + lastName + "\n" + 
+		"username: " + newUsername + "\n" + 
+		"password: " + newPassword + "\n";
+		return output;
+	}
+
 	public CustomerAccount() {
 		super();
 	}
