@@ -15,6 +15,14 @@ import com.revature.models.CustomerAccount;
 
 
 public class CustomerDAOImp implements CustomerDAO{
+
+	
+	
+	public static void main (String[] args) {
+		CustomerDAOImp test = new CustomerDAOImp();
+		test.getCustomerById(0);
+	}
+
 	@Override
 	public CustomerAccount getCustomerById(int userId) {
 		try(Connection conn = ConnectionUtil.getConnection()){
@@ -33,15 +41,10 @@ public class CustomerDAOImp implements CustomerDAO{
 						result.getString("newUsername"),
 						result.getString("newPassword")
 						);
-//				String id = result.getString("user_id");
-//				if(id!=null) {
-//					CustomerDAO customerDAO = new CustomerDAOImp();
-//					Home home = homeDao.getHomeByName(homeName);
-//					avenger.setHome(home);
-//				}	
 				return customerAccount;
+				}	
 			}		
-		}catch(SQLException e) {
+		catch(SQLException e) {
 			e.printStackTrace();
 		}
 		return null;

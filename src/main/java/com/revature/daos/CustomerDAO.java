@@ -1,5 +1,17 @@
 package com.revature.daos;
+import java.util.List;
 
-public class CustomerDAO {
+import com.revature.models.CustomerAccount;
 
+
+public interface CustomerDAO {
+
+	CustomerAccount getCustomerById(int userId);
+	
+
+	
+
+// Literally to check balance
+// Check last transaction
+	
 }
