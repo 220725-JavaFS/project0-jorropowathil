@@ -1,8 +1,10 @@
 package com.revature.daos;
 
-public interface BaseEmployeeDAO {
-	
-	public abstract getUserId(int userId);
-	
+import java.util.List;
 
+import com.revature.models.CustomerAccount;
+
+public interface BaseEmployeeDAO {
+//	See All Customers
+//	
 }

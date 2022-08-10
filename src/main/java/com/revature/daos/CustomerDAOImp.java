@@ -15,8 +15,8 @@ import com.revature.models.CustomerAccount;
 
 
 public class CustomerDAOImp implements CustomerDAO{
-	
-	public CustomerAccount getUserId(int userId) {
+	@Override
+	public CustomerAccount getCustomerById(int userId) {
 		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "SELECT * FROM customer WHERE user_id = "+userId+";";
 			Statement statement = conn.createStatement();
@@ -33,26 +33,49 @@ public class CustomerDAOImp implements CustomerDAO{
 						result.getString("newUsername"),
 						result.getString("newPassword")
 						);
-			
-				
-				
-				String homeName = result.getString("home_name");
-				if(homeName!=null) {
-					HomeDAO homeDao = new HomeDAOImpl();
-					Home home = homeDao.getHomeByName(homeName);
-					avenger.setHome(home);
-				}
-				
-				return avenger;
-			}
-			
-			
+//				String id = result.getString("user_id");
+//				if(id!=null) {
+//					CustomerDAO customerDAO = new CustomerDAOImp();
+//					Home home = homeDao.getHomeByName(homeName);
+//					avenger.setHome(home);
+//				}	
+				return customerAccount;
+			}		
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-
 	
+	
+	
+//	@Override
+//	public void getCustomerBalance(CustomerAccount customerAccount) {
+//	}
+	
+	
+	
+	
+//These functions are for managers and Bank managers
+//	public void depositMoney (CustomerAccount customerAccount) {	
+//	}
+//		
+//	
+//	public void withdrawMoney (CustomerAccount customerAccount) {
+//	}
+	
+	
+	
+	
+	
+	
+// To pull up all the customers in the database
+//	public static void main(String[] args) {
+//		CustomerDAO cDao = new CustomerDAOImp();
+//		List<CustomerAccount> list = cDao.getAllCustomers();
+//		System.out.println(list);
+//		}
+//	
+//	
 	
 }
