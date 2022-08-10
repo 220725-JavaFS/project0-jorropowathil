@@ -19,8 +19,22 @@ public class MenuInterface {
 
 			  case 2:
 				  System.out.println("You have selected to Sign Up!\n");
-				  NewUserInterface NewUserInterface = new NewUserInterface();
-				  NewUserInterface.NewUser();
+				  System.out.println("Please enter your userId");
+				  int user_id = scan.nextInt();
+				  Scanner scan1 = new Scanner(System.in);
+				  System.out.println("Please enter your first name");
+				  
+				  String first_name = scan1.next();
+				  System.out.println("Hello, " + first_name + ". Please enter your last name ");
+				  
+				  String lastname = scan1.next();
+				  System.out.println("Welcome " + first_name + " " + lastname + ", please pick your Username");
+				  
+				  String username = scan1.next();
+				  System.out.println("Your selected username is " + username);
+				  
+				  System.out.println("\nPlease choose your password.");
+				  String passphrase = scan1.next();
 				  break;
 			
 			  case 3:
