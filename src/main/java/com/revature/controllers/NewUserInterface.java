@@ -12,12 +12,12 @@ import com.revature.util.ConnectionUtil;
 
 public class NewUserInterface {
 	
-	public static void NewUser1() {
+	public static void NewUser() {
 		
-			
+		
+		  Scanner scan = new Scanner(System.in);
 		  System.out.println("Please enter your userId");
 		  int user_id = scan.nextInt();
-		  Scanner scan = new Scanner(System.in);
 		  System.out.println("Please enter your first name");
 		  
 		  String first_name = scan.next();

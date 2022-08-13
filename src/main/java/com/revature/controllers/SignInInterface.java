@@ -8,27 +8,62 @@ import com.revature.models.ManagerAccount;
 
 
 public class SignInInterface {
-	
 	ManagerDao managerDaoImp = new ManagerDaoImp();
 	CustomerDAOImp customerDAO = new CustomerDAOImp();
-	
-	@SuppressWarnings("unused")
-	public boolean SignIn() {
-		
+
+	public void SignIn() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Welcome Back! \n" + "Are you a employee or a customer?" + "\n" + "1.) Employee" + "\n" + "2.) Customer"+ "\n");
 		int selection = scan.nextInt();
+		
+		
+		
 		switch(selection) {
+		
+		// If they choose to login as an employee
 		  case 1:
 			  System.out.println("You have selected employee! Welcome back!\n");
-			  
-			  break;
-
+			  System.out.println("Please enter your employee username\n");
+			  String tryEmployeeUsername = scan.next();
+			  System.out.println("Welcome back " + tryEmployeeUsername + "!\n" + "Now please enter your password");
+			  String tryEmployeePassphrase = scan.next();
+			  ManagerAccount managerAccount = managerDaoImp.getManagerByUsername(tryEmployeeUsername);
+			  System.out.println(managerAccount);
+			 
+			  if (managerAccount == null) {
+				  System.out.println("The username or password is incorrect!");
+				  SignIn();
+			  }
+			  try {
+				  boolean signInSuccess = managerAccount.getPassphrase().equals(tryEmployeePassphrase);
+				  System.out.println(signInSuccess);
+				  if (signInSuccess = true) {
+						System.out.println("Sign in successfull");
+						System.out.println("Welcome back, " + tryEmployeeUsername + "\n");
+						System.out.println("What would you like to do?\n" + "1.) View Customer Accounts \n" + "2.) Make a deposit\n" + "3.) Exit");
+						}
+				
+				  
+						
+				
+			} catch (Exception e) {
+				System.out.println("Username or password incorrect");
+				SignIn();
+			}
+				
+				
+				
+				
+				
+				
+				break;
+		// If they choose to login as a customer	  
 		  case 2:
+			  
 			  System.out.println("You have selected customer! Welcome back!\n");
 			  System.out.println("You selected option number " + selection);
-				System.out.println("Please enter your username!");
-				String customerUsername = scan.next();
+			  System.out.println("Please enter your username!");
+			  String customerUsername = scan.next();
 
 				System.out.println(customerUsername);
 				
@@ -64,24 +99,8 @@ public class SignInInterface {
 			  MenuInterface.MenuSelect();
 		}
 		
-		System.out.println("You selected option number" + selection);
-		System.out.println("Please enter your username!");
-		String currentUsername = scan.next();
-		System.out.println("Hello, " + currentUsername + "\nPlease type in your password");
-		String currentPassword = scan.next();
-	
-		ManagerAccount managerAccount = managerDaoImp.getManagerByUsername(currentUsername);
-		 
 		
-		boolean signInSuccess = managerAccount.getPassphrase().equals(currentPassword);
-		if (signInSuccess = true) {
-			System.out.println("Sign in successfull");
-			System.out.println("Welcome back, " + currentUsername + "\n");
-			System.out.println("What would you like to do?\n" + "1.) View Customer Accounts \n" + "2.) Make a deposit\n" + "3.) Exit");
-			}
-		else {
-			System.out.println("Username or password incorrect");
-		}
+		
 		
 		
 		
@@ -138,9 +157,9 @@ public class SignInInterface {
 		  default:
 			  System.out.println("Unrecongnized selection...\n" + "Returning to Main Menu\n");
 			  MenuInterface.MenuSelect();
-		}
-		
-		return signInSuccess;
-	}}
+		}	
+	}
+	
+}
 	
 	

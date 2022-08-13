@@ -89,6 +89,7 @@ public ManagerAccount getManagerByUsername (String username){
 					result.getString("username"),
 					result.getString("passphrase")
 					);
+
 			return managerAccount;
 			}	
 		}		
