@@ -89,7 +89,7 @@ public class CustomerAccount {
 
 	public Object getPassphrase() {
 		// TODO Auto-generated method stub
-		return null;
+		return passphrase;
 	}
 	
 //	public String toString() {
