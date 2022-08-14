@@ -27,9 +27,8 @@ public class SignInInterface {
 			  String tryEmployeeUsername = scan.next();
 			  System.out.println("Welcome back " + tryEmployeeUsername + "!\n" + "Now please enter your password");
 			  String tryEmployeePassphrase = scan.next();
+			  
 			  ManagerAccount managerAccount = managerDaoImp.getManagerByUsername(tryEmployeeUsername);
-			  System.out.println(managerAccount);
-			 
 			  if (managerAccount == null) {
 				  System.out.println("The username or password is incorrect!");
 				  SignIn();
@@ -40,23 +39,15 @@ public class SignInInterface {
 				  if (signInSuccess = true) {
 						System.out.println("Sign in successfull");
 						System.out.println("Welcome back, " + tryEmployeeUsername + "\n");
-						System.out.println("What would you like to do?\n" + "1.) View Customer Accounts \n" + "2.) Make a deposit\n" + "3.) Exit");
-						}
-				
-				  
-						
-				
-			} catch (Exception e) {
+					EmployeeLoggedMenu.EmployeeLoggedMenuSelect();	  		
+			}} 
+			  catch (Exception e) {
 				System.out.println("Username or password incorrect");
 				SignIn();
 			}
-				
-				
-				
-				
-				
-				
 				break;
+				
+				
 		// If they choose to login as a customer	  
 		  case 2:
 			  
