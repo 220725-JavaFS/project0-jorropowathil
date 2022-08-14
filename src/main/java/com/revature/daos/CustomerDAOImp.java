@@ -52,7 +52,6 @@ public class CustomerDAOImp implements CustomerDAO{
 			Statement statement = conn.createStatement();
 			System.out.println(statement);
 			ResultSet result = statement.executeQuery(sql);
-			System.out.println("we getting this far");
 			
 			if(result.next()) { //resultSets are cursor based, each time .next is called the cursor moves to the next group of values. 
 				//It starts one before so you always need to call next.
@@ -65,7 +64,6 @@ public class CustomerDAOImp implements CustomerDAO{
 						result.getString("username"),
 						result.getString("passphrase")
 						);
-				
 				System.out.println(customerAccount);
 				return customerAccount;
 				
@@ -76,10 +74,6 @@ public class CustomerDAOImp implements CustomerDAO{
 		}
 		return null;
 	}
-
-
-
-
 
 
 
@@ -116,12 +110,7 @@ public class CustomerDAOImp implements CustomerDAO{
 	}
 
 
-	@Override
-	public CustomerAccount getCustomerbyUsername(String Username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
 
-	}
+
+
+}

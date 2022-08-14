@@ -56,12 +56,9 @@ public class SignInInterface {
 				
 				
 				
-		//=================================================================================
-		// If they choose to login as a customer	 
-				
-				
-				
-//				Still need to get customer Login to work 
+		  //=================================================================================
+		  // If they choose to login as a customer	 
+		  //Still need to get customer Login to work 
 		  case 2:
 			  
 			  System.out.println("You have selected to login as a customer! Welcome back!\n");
@@ -70,7 +67,7 @@ public class SignInInterface {
 			  System.out.println("Hello, " + tryCustomerUsername + "\nPlease type in your password");
 			  String tryCustomerPassphrase = scan.next();
 			  
-			  CustomerAccount customerAccount = customerDaoImp.getCustomerbyUsername(tryCustomerUsername);
+			  CustomerAccount customerAccount = customerDaoImp.getCustomerByUsername(tryCustomerUsername);
 			  System.out.println(customerAccount);
 			  
 			  if (customerAccount == null) {
