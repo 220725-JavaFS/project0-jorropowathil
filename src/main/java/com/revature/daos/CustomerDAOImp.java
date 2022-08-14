@@ -48,10 +48,11 @@ public class CustomerDAOImp implements CustomerDAO{
 	
 	public CustomerAccount getCustomerByUsername (String username){
 		try(Connection conn = ConnectionUtil.getConnection()){
-			String sql = "SELECT * FROM customeraccounts WHERE username = "+username+";";
+			String sql = "SELECT * FROM customeraccounts WHERE username = '"+username+"';";
 			Statement statement = conn.createStatement();
 			System.out.println(statement);
 			ResultSet result = statement.executeQuery(sql);
+			System.out.println("we getting this far");
 			
 			if(result.next()) { //resultSets are cursor based, each time .next is called the cursor moves to the next group of values. 
 				//It starts one before so you always need to call next.
@@ -77,11 +78,7 @@ public class CustomerDAOImp implements CustomerDAO{
 	}
 
 
-	@Override
-	public CustomerAccount getCustomerbyUsername(String Username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 
 
@@ -117,5 +114,14 @@ public class CustomerDAOImp implements CustomerDAO{
 		}
 		return null;	
 	}
+
+
+	@Override
+	public CustomerAccount getCustomerbyUsername(String Username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 
 	}

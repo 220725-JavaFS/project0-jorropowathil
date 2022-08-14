@@ -71,12 +71,14 @@ public class SignInInterface {
 			  String tryCustomerPassphrase = scan.next();
 			  
 			  CustomerAccount customerAccount = customerDaoImp.getCustomerbyUsername(tryCustomerUsername);
+			  System.out.println(customerAccount);
 			  
 			  if (customerAccount == null) {
 				  System.out.println("The username or password is incorrect!");
 				  System.out.println(customerAccount);
 				  SignIn();
 			  }
+			  else {}
 			  
 			  
 			  try {
