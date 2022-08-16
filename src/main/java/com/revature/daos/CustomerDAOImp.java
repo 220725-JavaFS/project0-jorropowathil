@@ -79,38 +79,15 @@ public class CustomerDAOImp implements CustomerDAO{
 
 	
 	
-	public static CustomerAccount makeNewCustomerAccount(String firstName, String lastName, String username, String passphrase) {
+	public static void makeNewCustomerAccount(String firstName, String lastName, String username, String passphrase) {
 		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "INSERT INTO customeraccounts (first_name, last_name, username, passphrase) VALUES ('"+firstName+"', '"+lastName+"', '"+username+"', '"+passphrase+"');";
 			Statement statement = conn.createStatement();
 			System.out.println(statement);
-			ResultSet result = statement.executeQuery(sql);
-			
-			if(result.next()) { //resultSets are cursor based, each time .next is called the cursor moves to the next group of values. 
-				//It starts one before so you always need to call next.
-				CustomerAccount customerAccount = new CustomerAccount(
-						result.getString("user_id"),
-						result.getInt("balance"),
-						result.getInt("last_Transaction"),
-						result.getString("first_name"),
-						result.getString("last_name"),
-						result.getString("username"),
-						result.getString("passphrase")
-						);
-				
-				System.out.println(customerAccount);
-				return customerAccount;
-				
-				}	
+
 			}		
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return null;	
 	}
-
-
-
-
-
 }

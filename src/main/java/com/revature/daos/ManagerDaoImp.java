@@ -1,6 +1,7 @@
 package com.revature.daos;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -41,37 +42,30 @@ public class ManagerDaoImp implements ManagerDao {
 
 	
 //	Come back to this
-	public CustomerAccount atmService(int userId, int transactionAmount){
+
+//	+ "UPDATE customeraccounts SET last_transaction = "+transactionAmount+" WHERE user_id = "+userId+";"
+	public void atmServiceDeposit(int userId, int transactionAmount){
 		try(Connection conn = ConnectionUtil.getConnection()){
-			String sql = "UPDATE customeraccounts SET balance = (balance + "+transactionAmount+") WHERE user_id = "+userId+";"
-					+ "UPDATE customeraccounts SET last_transaction = "+transactionAmount+" WHERE user_id = "+userId+";";
-			
+			String sql = "UPDATE customeraccounts SET balance = "+transactionAmount+" WHERE user_id = "+userId+";";
 			Statement statement = conn.createStatement();
-			ResultSet result = statement.executeQuery(sql);
-			
-			if(result.next()) { //resultSets are cursor based, each time .next is called the cursor moves to the next group of values. 
-				//It starts one before so you always need to call next.
-				CustomerAccount customerAccount = new CustomerAccount(
-						result.getString("user_id"),
-						result.getInt("balance"),
-						result.getInt("last_Transaction"),
-						result.getString("first_name"),
-						result.getString("last_name"),
-						result.getString("username"),
-						result.getString("passphrase")
-						);
-				System.out.println(result.getInt("balance"));
-				
-				
-				return customerAccount;
-				}	
+			statement.executeUpdate(sql);
 			}		
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
 	}
 
+	
+	public void atmServiceWithdrawal(int userId, int transactionAmount){
+		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = "UPDATE customeraccounts SET balance = "+transactionAmount+" WHERE user_id = "+userId+";";
+			Statement statement = conn.createStatement();
+			statement.executeUpdate(sql);
+			}		
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 
 public ManagerAccount getManagerByUsername (String username){

@@ -26,9 +26,8 @@ public class SignInInterface {
 			  System.out.println("You have selected employee! Welcome back!\n");
 			  System.out.println("Please enter your employee username\n");
 			  String tryEmployeeUsername = scan.next();
-			  System.out.println("Welcome back " + tryEmployeeUsername + "!\n" + "Now please enter your password");
+			  System.out.println("Hello " + tryEmployeeUsername + "!\n" + "Now please enter your password");
 			  String tryEmployeePassphrase = scan.next();
-			  
 			  ManagerAccount managerAccount = managerDaoImp.getManagerByUsername(tryEmployeeUsername);
 			  if (managerAccount == null) {
 				  System.out.println("The username or password is incorrect!");
@@ -36,7 +35,6 @@ public class SignInInterface {
 			  }
 			  try {
 				  boolean signInSuccess = managerAccount.getPassphrase().equals(tryEmployeePassphrase);
-				  System.out.println(signInSuccess);
 				  if (signInSuccess == true) {
 						System.out.println("Sign in successfull");
 						System.out.println("Welcome back, " + tryEmployeeUsername + "\n");
@@ -51,7 +49,6 @@ public class SignInInterface {
 				SignIn();
 			}
 				break;
-				
 				
 				
 				
@@ -75,12 +72,10 @@ public class SignInInterface {
 				  System.out.println(customerAccount);
 				  SignIn();
 			  }
-			  else {}
 			  
 			  
 			  try {
 				  boolean customerSignInSuccess = customerAccount.getPassphrase().equals(tryCustomerPassphrase);
-				  System.out.println(customerSignInSuccess);
 				  if (customerSignInSuccess == true) {
 						System.out.println("Sign in successfull");
 						System.out.println("Welcome back, " + tryCustomerUsername + "\n");
@@ -93,14 +88,5 @@ public class SignInInterface {
 			  catch (Exception e) {
 				System.out.println("Username or password incorrect\n");
 				SignIn();
-			}
-			  
-			  
-			  
-			  
-			  
-			  
-			  
-			  
-			  
+			}  
 		}}}

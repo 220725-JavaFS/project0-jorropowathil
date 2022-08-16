@@ -24,26 +24,12 @@ public class NewUserInterface {
 			  System.out.println("\nPlease confirm your password.");
 			  String confirmPassphrase = scan.next();
 			  
-			  System.out.println(passphrase);
+			  System.out.println(passphrase + "<---- Passphrase Here");
 			  System.out.println(confirmPassphrase);
 			  CustomerDAOImp.makeNewCustomerAccount(first_name, lastname, username, confirmPassphrase);
 			  System.out.println("User: " + username + ", created.\nPlease try logging in!");
 		}
-		  MenuInterface.MenuSelect();
-
-		  
-//		  if (passphrase == confirmPassphrase) { 
-//			 
-//			  System.out.println("We did technically get this far!");
-//			  
-//		  }
-//		  else{
-//			  System.out.println("The passwords do not match please try again");
-//			  System.out.println(passphrase);
-//			  System.out.println(confirmPassphrase);
-//			  NewUser();
-//		  }
-		  
+		  MenuInterface.MenuSelect();	  
 	}
 
 }

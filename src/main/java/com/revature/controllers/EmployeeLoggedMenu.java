@@ -4,6 +4,7 @@ import java.util.Scanner;
 import com.revature.daos.CustomerDAOImp;
 import com.revature.daos.ManagerDao;
 import com.revature.daos.ManagerDaoImp;
+import com.revature.models.CustomerAccount;
 
 
 
@@ -23,7 +24,6 @@ public class EmployeeLoggedMenu {
 			  case 1:
 				  System.out.println("Let's view a customer's account!\nPlease enter the customer's user ID number!");
 				  int customerId = scan.nextInt();
-				  managerDaoImp.getCustomerById(customerId);
 				  System.out.println(managerDaoImp.getCustomerById(customerId));
 				  System.out.println("Did you want to do anything else?");
 				  EmployeeLoggedMenuSelect();
@@ -32,21 +32,25 @@ public class EmployeeLoggedMenu {
 			  case 2:
 				  System.out.println("Let's complete a transaction for the customer!\nPlease enter the customer's ID!");
 				  int customerIdTransaction = scan.nextInt();
-				  managerDaoImp.getCustomerById(customerIdTransaction);
-				  System.out.println(managerDaoImp.getCustomerById(customerIdTransaction));
+				  CustomerAccount currentCustomerAccount = managerDaoImp.getCustomerById(customerIdTransaction);
+				  System.out.println(currentCustomerAccount + "CURRENT CUSTOMER ACCOUNT HEREEEE!!!!!!!");
+				  System.out.println(currentCustomerAccount.getBalance());
 				  System.out.println("Will this be: \n1.) Deposit\n2.)withdrawal?");
 				  int customerTransactionType = scan.nextInt();
 				  if (customerTransactionType == 1) {
 					  System.out.println("Please enter the amount you wish to Deposit");
 					  int customerDepositAmount = scan.nextInt();
-					  managerDaoImp.atmService(customerIdTransaction, customerDepositAmount);
+					  int totalBalance = currentCustomerAccount.getBalance() + customerDepositAmount;
+					  System.out.println(totalBalance + "<-----total balance after the deposit was added");
+					  
+					  managerDaoImp.atmServiceDeposit(customerIdTransaction, totalBalance);
 					  System.out.println(managerDaoImp.getCustomerById(customerIdTransaction));
 
 				  }
 				  else if (customerTransactionType == 2){
 					  System.out.println("Please enter the amount you wish to withdraw");
 					  int customerWithdrawAmount = scan.nextInt();
-					  managerDaoImp.atmService(customerIdTransaction, -customerWithdrawAmount);
+//					  managerDaoImp.atmService(customerIdTransaction, -customerWithdrawAmount);
 					  System.out.println(managerDaoImp.getCustomerById(customerIdTransaction));
 
 				  }

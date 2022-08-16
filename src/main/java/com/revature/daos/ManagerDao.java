@@ -6,8 +6,9 @@ import com.revature.models.ManagerAccount;
 public interface ManagerDao {
 
 	CustomerAccount getCustomerById(int userId);
-	CustomerAccount atmService(int userId, int transactionAmount);
+	void atmServiceDeposit(int userId, int transactionAmount);
 	ManagerAccount getManagerByUsername (String username);
+	
 	
 
 }
