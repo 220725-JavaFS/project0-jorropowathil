@@ -33,50 +33,40 @@ public class EmployeeLoggedMenu {
 				  System.out.println("Let's complete a transaction for the customer!\nPlease enter the customer's ID!");
 				  int customerIdTransaction = scan.nextInt();
 				  CustomerAccount currentCustomerAccount = managerDaoImp.getCustomerById(customerIdTransaction);
-				  System.out.println(currentCustomerAccount + "CURRENT CUSTOMER ACCOUNT HEREEEE!!!!!!!");
-				  System.out.println(currentCustomerAccount.getBalance());
+				  System.out.println(currentCustomerAccount + "Up to date customer information for " + currentCustomerAccount.getFirstName() + " " + currentCustomerAccount.getLastName());
 				  System.out.println("Will this be: \n1.) Deposit\n2.)withdrawal?");
 				  int customerTransactionType = scan.nextInt();
 				  if (customerTransactionType == 1) {
 					  System.out.println("Please enter the amount you wish to Deposit");
 					  int customerDepositAmount = scan.nextInt();
 					  int totalBalance = currentCustomerAccount.getBalance() + customerDepositAmount;
-					  System.out.println(totalBalance + "<-----total balance after the deposit was added");
-					  
 					  managerDaoImp.atmServiceDeposit(customerIdTransaction, totalBalance);
-					  System.out.println(managerDaoImp.getCustomerById(customerIdTransaction));
-
+					  managerDaoImp.atmLastTransaction(customerIdTransaction, customerDepositAmount);
+					  System.out.println(currentCustomerAccount);
+					  System.out.println(totalBalance + " <----- The total balance after the deposit was added");
+					  System.out.println(currentCustomerAccount.getLastTransaction() + " <----- The last transaction completed");
+					  EmployeeLoggedMenuSelect();
 				  }
 				  else if (customerTransactionType == 2){
 					  System.out.println("Please enter the amount you wish to withdraw");
 					  int customerWithdrawAmount = scan.nextInt();
-//					  managerDaoImp.atmService(customerIdTransaction, -customerWithdrawAmount);
-					  System.out.println(managerDaoImp.getCustomerById(customerIdTransaction));
-
+					  int totalBalance = currentCustomerAccount.getBalance() - customerWithdrawAmount;
+					  managerDaoImp.atmServiceWithdrawal(customerIdTransaction, totalBalance);
+					  managerDaoImp.atmLastTransaction(customerIdTransaction, (customerWithdrawAmount*-1));
+				
+					  System.out.println(totalBalance + " <----- The total balance after the deposit was added");
+					  System.out.println(currentCustomerAccount.getLastTransaction() + " <----- The last transaction completed");
+					  EmployeeLoggedMenuSelect();
 				  }
-				  
-				  
-				  
-				  
-				  
-				  
 				  break;
-			
 			  case 3:
 				  MenuInterface.MenuSelect();
 				  break;
-
 			  //Catches any integers that are not 1,2 or 3
 			  default:
 				  System.out.println("Unrecongnized selection...\n" + "Returning to Main Menu\n");
 				  MenuInterface.MenuSelect();
 			}
-		
-
-
-	
-
-		
 	}
 }
 	

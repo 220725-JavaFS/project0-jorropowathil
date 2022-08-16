@@ -54,6 +54,17 @@ public class ManagerDaoImp implements ManagerDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public void atmLastTransaction(int userId, int transactionAmount){
+		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = "UPDATE customeraccounts SET last_transaction = "+transactionAmount+" WHERE user_id = "+userId+";";
+			Statement statement = conn.createStatement();
+			statement.executeUpdate(sql);
+			}		
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	
 	public void atmServiceWithdrawal(int userId, int transactionAmount){

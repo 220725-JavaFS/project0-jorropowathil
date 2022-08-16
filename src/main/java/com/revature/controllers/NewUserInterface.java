@@ -17,9 +17,8 @@ public class NewUserInterface {
 			  System.out.println("Welcome " + first_name + " " + lastname + ", please pick your Username");
 			  String username = scan.next();
 			  System.out.println("Your selected username is " + username);
-			  
-			  
-			  System.out.println("\nPlease choose your password.");
+
+			  System.out.println("Please choose your password.");
 			  String passphrase = scan.next();
 			  System.out.println("\nPlease confirm your password.");
 			  String confirmPassphrase = scan.next();
@@ -28,8 +27,9 @@ public class NewUserInterface {
 			  System.out.println(confirmPassphrase);
 			  CustomerDAOImp.makeNewCustomerAccount(first_name, lastname, username, confirmPassphrase);
 			  System.out.println("User: " + username + ", created.\nPlease try logging in!");
+			  MenuInterface.MenuSelect();
 		}
-		  MenuInterface.MenuSelect();	  
+	  
 	}
 
 }

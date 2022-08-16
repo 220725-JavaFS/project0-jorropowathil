@@ -83,6 +83,7 @@ public class CustomerDAOImp implements CustomerDAO{
 		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "INSERT INTO customeraccounts (first_name, last_name, username, passphrase) VALUES ('"+firstName+"', '"+lastName+"', '"+username+"', '"+passphrase+"');";
 			Statement statement = conn.createStatement();
+			statement.executeUpdate(sql);
 			System.out.println(statement);
 
 			}		

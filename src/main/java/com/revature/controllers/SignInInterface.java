@@ -16,9 +16,6 @@ public class SignInInterface {
 		System.out.println("---------------------------------------------------");
 		System.out.println("Welcome Back! \n" + "Are you a employee or a customer?" + "\n" + "1.) Employee" + "\n" + "2.) Customer"+ "\n");
 		int selection = scan.nextInt();
-		
-		
-		
 		switch(selection) {
 		
 		// If they choose to login as an employee
@@ -49,10 +46,7 @@ public class SignInInterface {
 				SignIn();
 			}
 				break;
-				
-				
-				
-				
+
 		  //=================================================================================
 		  // If they choose to login as a customer	 
 		  //Still need to get customer Login to work 
@@ -79,6 +73,10 @@ public class SignInInterface {
 				  if (customerSignInSuccess == true) {
 						System.out.println("Sign in successfull");
 						System.out.println("Welcome back, " + tryCustomerUsername + "\n");
+						
+						//CONTINUE CODING HERE TO INCLUDE VIEW CURRENT BALANCE
+						// INCLUDE VIEW OF LAST TRANSACTION COMPLETED
+						
 						System.out.println("Need to create menu options!");
 				  }
 				  else if (customerSignInSuccess == false) {
