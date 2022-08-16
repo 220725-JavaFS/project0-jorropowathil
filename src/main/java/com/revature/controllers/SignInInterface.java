@@ -11,22 +11,6 @@ public class SignInInterface {
 	ManagerDao managerDaoImp = new ManagerDaoImp();
 	CustomerDAO customerDaoImp = new CustomerDAOImp();
 	
-public static void GetCustomerMenuOption(){
-	System.out.println("==========Customer Main Menu ============");
-	System.out.println("Please make your selection");
-	System.out.println("1.) View your current balance");
-	System.out.println("2.) View your last completed transaction");
-	System.out.println("3.) Log Out");
-	Scanner scan = new Scanner(System.in);
-	System.out.println("==========Customer Main Menu ============");
-	System.out.println("Please make your selection");
-	System.out.println("1.) View your current balance");
-	System.out.println("2.) View your last completed transaction");
-	System.out.println("3.) Log Out");
-
-	}
-
-	
 	public void SignIn() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("---------------------------------------------------");
@@ -62,12 +46,9 @@ public static void GetCustomerMenuOption(){
 				SignIn();
 			}
 				break;
-
-		  //=================================================================================
-		  // If they choose to login as a customer	 
-		  //Still need to get customer Login to work 
+//=================================================================================
+// If they choose to login as a customer
 		  case 2:
-			  
 			  System.out.println("You have selected to login as a customer! Welcome back!\n");
 			  System.out.println("Please enter your username!");
 			  String tryCustomerUsername = scan.next();
@@ -87,6 +68,7 @@ public static void GetCustomerMenuOption(){
 			  try {
 				  boolean customerSignInSuccess = customerAccount.getPassphrase().equals(tryCustomerPassphrase);
 				  if (customerSignInSuccess == true) {
+					  
 						System.out.println("Sign in successfull");
 						System.out.println("Welcome back, " + tryCustomerUsername + "\n");
 						System.out.println("==========Customer Main Menu ============");
@@ -102,11 +84,40 @@ public static void GetCustomerMenuOption(){
 							System.out.println("You have selected to view your current balance");
 							System.out.println(customerAccount);
 							System.out.println(customerAccount.getBalance() + "<--- Current Customer Balance");
-							
-							break;
+							System.out.println("Would you like to do anything else?\n1.) See your last transaction\n2.) Log Out");
+							int anythingElse = scan.nextInt();
+							switch (anythingElse) {
+							case 1:
+								System.out.println("You have selected to view your last Transaction");
+								System.out.println(customerAccount.getLastTransaction() + "<--- Last Customer Transaction");
+								System.out.println("Thank you banking with us. Logging you out. Goodbye!");
+								MenuInterface.MenuSelect();
+								break;
+							case 2:
+								System.out.println("you have selected to Log Out. \nGoodbye!");
+								MenuInterface.MenuSelect();
+								break;
+						
+							default:
+								System.out.println("Unrecongnized input...\nReturning to main menu");
+								MenuInterface.MenuSelect();
+								break;
+							}
 						case 2: 
 							System.out.println("You have selected to view your last Transaction");
 							System.out.println(customerAccount.getLastTransaction() + "<--- Last Customer Transaction");
+							System.out.println("Please make your selection\n1.) View Current Balance\n2.) Log out");
+							int afterTransactionView = scan.nextInt();
+							switch(afterTransactionView) {
+							case 1:
+								System.out.println(customerAccount.getBalance() + "<--- Current Customer Balance");
+								System.out.println("Thank you banking with us. Logging you out. Goodbye!");
+								MenuInterface.MenuSelect();
+								break;
+								default: 
+									System.out.println("Unrecongnized input...\nReturning to main menu");
+									break;
+							} 
 							break;
 						default:
 							break;

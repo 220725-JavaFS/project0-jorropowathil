@@ -34,7 +34,7 @@ public class EmployeeLoggedMenu {
 				  int customerIdTransaction = scan.nextInt();
 				  CustomerAccount currentCustomerAccount = managerDaoImp.getCustomerById(customerIdTransaction);
 				  System.out.println(currentCustomerAccount + "Up to date customer information for " + currentCustomerAccount.getFirstName() + " " + currentCustomerAccount.getLastName());
-				  System.out.println("Will this be: \n1.) Deposit\n2.)withdrawal?");
+				  System.out.println("Will this be: \n1.) Deposit\n2.) Withdrawal");
 				  int customerTransactionType = scan.nextInt();
 				  if (customerTransactionType == 1) {
 					  System.out.println("Please enter the amount you wish to Deposit");
@@ -42,9 +42,7 @@ public class EmployeeLoggedMenu {
 					  int totalBalance = currentCustomerAccount.getBalance() + customerDepositAmount;
 					  managerDaoImp.atmServiceDeposit(customerIdTransaction, totalBalance);
 					  managerDaoImp.atmLastTransaction(customerIdTransaction, customerDepositAmount);
-					  System.out.println(currentCustomerAccount);
 					  System.out.println(totalBalance + " <----- The total balance after the deposit was added");
-					  System.out.println(currentCustomerAccount.getLastTransaction() + " <----- The last transaction completed");
 					  EmployeeLoggedMenuSelect();
 				  }
 				  else if (customerTransactionType == 2){
@@ -53,9 +51,7 @@ public class EmployeeLoggedMenu {
 					  int totalBalance = currentCustomerAccount.getBalance() - customerWithdrawAmount;
 					  managerDaoImp.atmServiceWithdrawal(customerIdTransaction, totalBalance);
 					  managerDaoImp.atmLastTransaction(customerIdTransaction, (customerWithdrawAmount*-1));
-				
-					  System.out.println(totalBalance + " <----- The total balance after the deposit was added");
-					  System.out.println(currentCustomerAccount.getLastTransaction() + " <----- The last transaction completed");
+					  System.out.println(" Withdrawal completed");
 					  EmployeeLoggedMenuSelect();
 				  }
 				  break;
